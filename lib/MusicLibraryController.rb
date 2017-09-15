@@ -4,8 +4,7 @@ class MusicLibraryController
   attr_accessor :files
 
   def initialize(path = './db/mp3s')
-    music_importer = MusicImporter.new(path)
-    @files = music_importer.import
+    MusicImporter.new(path).import
   end
 
   def call
@@ -23,7 +22,7 @@ class MusicLibraryController
     while input != "exit" do
       input = gets.chomp
       if input == "list_songs"
-
+        list_songs
       end
     end
   end
