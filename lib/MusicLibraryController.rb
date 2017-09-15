@@ -30,11 +30,11 @@ class MusicLibraryController
 
   def list_songs
     old_files = @files
-    f = old_files.collect do |f|
+    ff = old_files.collect do |f|
       f.split(".")[0]
     end
 
-    f = f.collect do |f|
+    f = ff.collect do |f|
       f.split(" - ")
     end
 
