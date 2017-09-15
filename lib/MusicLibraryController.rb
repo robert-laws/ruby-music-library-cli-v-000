@@ -46,4 +46,17 @@ class MusicLibraryController
 
     final_files.each_with_index { |file, index| puts "#{index + 1}. #{file}" }
   end
+
+  def list_artists
+    old_files = @files
+    ff = old_files.collect do |f|
+      f.split(".")[0]
+    end
+
+    f = ff.collect do |f|
+      f.split(" - ")[0].sort
+    end
+
+    f.each_with_index { |file, index| puts "#{index + 1}. #{file}" }
+  end
 end
