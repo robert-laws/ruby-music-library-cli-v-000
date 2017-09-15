@@ -28,22 +28,9 @@ class MusicLibraryController
   end
 
   def list_songs
-    old_files = @files
-    ff = old_files.collect do |f|
-      f.split(".")[0]
+    Song.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
+      puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
     end
-
-    f = ff.collect do |f|
-      f.split(" - ")
-    end
-
-    final_files = f.sort_by { |x, y, z| y }
-
-    final_files = final_files.collect do |f|
-      f.join(" - ")
-    end
-
-    final_files.each_with_index { |file, index| puts "#{index + 1}. #{file}" }
   end
 
   def list_artists
