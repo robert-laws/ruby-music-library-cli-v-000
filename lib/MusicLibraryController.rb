@@ -57,6 +57,8 @@ class MusicLibraryController
       f.split(" - ")[0]
     end
 
+    f = f.uniq
+
     f = f.sort
 
     f.each_with_index { |file, index| puts "#{index + 1}. #{file}" }
