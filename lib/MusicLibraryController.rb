@@ -54,8 +54,10 @@ class MusicLibraryController
     end
 
     f = ff.collect do |f|
-      f.split(" - ")[0].sort
+      f.split(" - ")[0]
     end
+
+    f = f.sort
 
     f.each_with_index { |file, index| puts "#{index + 1}. #{file}" }
   end
