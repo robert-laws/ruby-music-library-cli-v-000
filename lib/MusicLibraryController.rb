@@ -35,7 +35,6 @@ class MusicLibraryController
 
   def list_artists
     old_files = @files
-    binding.pry
     ff = old_files.collect do |f|
       f.split(".")[0]
     end
